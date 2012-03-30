@@ -15,6 +15,8 @@ class TypeDeCompte
 		std::string GetId() const;
 		std::string GetName() const;
 
+		bool soldeOk(const int solde) const;
+
 	private:
 		std::string name;
 		int soldeMin;

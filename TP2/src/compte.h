@@ -20,6 +20,7 @@ class Compte
 		void TransfererVers(int,Compte &);
 
 	private:
+		void SetSolde(int solde);
 		TypeDeCompte * typeDeCompte;
 		int solde;
 };
