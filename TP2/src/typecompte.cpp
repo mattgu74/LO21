@@ -24,9 +24,12 @@ string TypeDeCompte::GetId() const {
 	return this->name;
 }
 
-
 string TypeDeCompte::nameToId(const string & s) {
 	return tolower(s);
+}
+
+bool TypeDeCompte::soldeOk(const int solde) const {
+	return (this->soldeMin <= solde) and (solde <= this->soldeMax);
 }
 
 

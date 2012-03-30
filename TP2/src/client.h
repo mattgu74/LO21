@@ -34,8 +34,13 @@ class Client
 		 * Récupérer un id de client à partir de son nom + prenom
 		 * @param {const string&} nom
 		 * @param {const string&} prenom
+		 * @return {string} id
 		 */
 		static std::string nomPrenomToId(const std::string & nom, const std::string & prenom);
+		/**
+		 * Récupérer l'id du client
+		 * @return {string} id
+		 */
 		std::string GetId() const;
 		
 		/**
@@ -44,9 +49,20 @@ class Client
 		 */
 		void CreerCompte(TypeDeCompte & typeDeCompte, int soldeInitial=0);
 
+		/**
+		 * est ce que le client a déjà un compte de ce type ?
+		 * @param {const string &} id_typeDeCompte
+		 * @return {bool}
+		 */
 		bool TypeDeCompteExist(const std::string & id_typeDeCompte);
+		/**
+		 * est ce que le client a déjà un compte de ce type ?
+		 * @param {const TypeDeCompte &} typeDeCompte
+		 * @return {bool}
+		 */
 		bool TypeDeCompteExist(const TypeDeCompte & typeDeCompte);
 
+		
 		Compte * GetCompte(const std::string & id_typeDeCompte);
 		Compte * GetCompte(const TypeDeCompte & typeDeCompte);
 
