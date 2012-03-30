@@ -17,7 +17,7 @@ namespace BANQUE {
 		if(this->typesDeCompte.find((*type).GetId()) == this->typesDeCompte.end())
 		{
 			// Le type n'existe pas
-			this->typesDeCompte[(*type).GetId()] = *type;
+			this->typesDeCompte.insert ( std::pair<std::string,TypeDeCompte>((*type).GetId(),*type) );
 		} else {
 			delete type;
 			std::cerr << "ERROR : Le type de compte " << nom << " existe déjà !" << std::endl;
@@ -31,7 +31,7 @@ namespace BANQUE {
 		if(this->clients.find((*monClient).GetId()) == this->clients.end())
 		{
 			// Le client n'existe pas
-			this->clients[(*monClient).GetId()] = *monClient;
+			this->clients.insert ( std::pair<std::string,Client>((*monClient).GetId(),*monClient) );
 		} else {
 			delete monClient;
 			std::cerr << "ERROR : Le client " << nom << " " << prenom << " existe déjà !" << std::endl;
