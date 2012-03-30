@@ -17,9 +17,10 @@ namespace BANQUE {
 class Banque
 {
 	public:
-		Banque();
+		Banque(std::string nom);
 
 	private:
+		std::string nom;
 		std::map<std::string, TypeDeCompte> typesDeCompte;
 		std::map<std::string, Client> clients;
 };
