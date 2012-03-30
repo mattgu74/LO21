@@ -24,6 +24,18 @@ string TypeDeCompte::GetId() const {
 	return this->name;
 }
 
+float TypeDeCompte::GetTaux() const {
+	return this->taux;
+}
+
+int TypeDeCompte::GetSoldeMin() const {
+	return this->soldeMin;
+}
+
+int TypeDeCompte::GetSoldeMax() const {
+	return this->soldeMax;
+}
+
 string TypeDeCompte::nameToId(const string & s) {
 	return tolower(s);
 }
