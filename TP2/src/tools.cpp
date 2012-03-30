@@ -53,7 +53,7 @@ string & time_tToString(time_t & t) {
 	struct tm * timeinfo = localtime ( &(t) );
 	char * buffer = new char[80];
 	
-	strftime (buffer,80,"%d/%M/%Y",timeinfo);
+	strftime (buffer,80,"%d/%m/%Y",timeinfo);
 
 	string * s = new string(buffer);
 	return *s;

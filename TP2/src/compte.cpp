@@ -10,6 +10,7 @@ using std::cerr;
 using std::endl;
 using std::stringstream;
 using std::ostringstream;
+using std::vector;
 
 
 namespace BANQUE {
@@ -23,6 +24,10 @@ Compte::Compte(TypeDeCompte & typeDeCompte, int solde) {
 	this->typeDeCompte = &typeDeCompte;
 	this->solde = solde;
 	this->cumulInteret = 0;
+
+	stringstream stream;
+	stream << "création : " << solde;
+	this->makeHistorique(stream.str());
 }
 
 
@@ -115,12 +120,12 @@ string Compte::str() const {
 	stream << "Plafond de " << this->typeDeCompte->GetSoldeMax() << "  Solde minimum autorise : " << this->typeDeCompte->GetSoldeMin() << endl;
 	stream << "Historique :" << endl;
 	
-	/*for(vector<string>::const_iterator it=this->historique.begin();
+	for(vector<string>::const_iterator it=this->historique.begin();
 		it != this->historique.end(); ++it)
 	{
-		stream << time
+		stream << *it << endl;
+	}
 	
-	 << endl << "todo thomas historique" << endl;*/
 	
 	return stream.str();
 }
