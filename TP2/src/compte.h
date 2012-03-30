@@ -22,6 +22,7 @@ class Compte
 		std::string str() const;
 
 		void CalculInterets();
+		void makeHistorique(const std::string & s);
 
 	private:
 		void SetSolde(int solde);

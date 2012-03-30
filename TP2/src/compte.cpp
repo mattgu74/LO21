@@ -3,6 +3,8 @@
 #include <iostream>
 #include <sstream>
 
+#include "tools.h"
+
 using std::string;
 using std::cerr;
 using std::endl;
@@ -48,7 +50,7 @@ void Compte::Deposer(int amount) {
 		this->SetSolde(this->solde + amount);
 		stringstream stream;
 		stream << "depot " << amount;
-		this->historique.push_back(stream.str());
+		this->makeHistorique(stream.str());
 	}
 }
 
@@ -61,7 +63,7 @@ void Compte::Retirer(int amount) {
 		this->SetSolde(this->solde - amount);
 		stringstream stream;
 		stream << "retrait " << amount;
-		this->historique.push_back(stream.str());
+		this->makeHistorique(stream.str());
 	}
 }
 
@@ -76,14 +78,20 @@ void Compte::TransfererVers(int amount,Compte & to) {
 	}
 	stringstream stream;
 	stream << "transfert " << amount << " vers " << to.GetId();
-	this->historique.push_back(stream.str());
+	this->makeHistorique(stream.str());
 	stream.clear();
 	stream << "reception transfert " << amount << " de " << this->GetId();
-	to.historique.push_back(stream.str());
+	to.makeHistorique(stream.str());
 }
 
 void Compte::CalculInterets() {
 	int interets = (int)((this->solde * this->typeDeCompte->GetTaux())/24.0);
+}
+
+void Compte::makeHistorique(const string & s) {
+	time_t rawtime;
+	time ( &rawtime );
+	this->historique.push_back(time_tToString(rawtime) + "\t" + s);
 }
 
 
@@ -105,7 +113,15 @@ string Compte::str() const {
 
 	stream << "Compte" << this->typeDeCompte->GetName() << "remunere au taux de " << this->typeDeCompte->GetTaux() << "%" << endl;
 	stream << "Plafond de " << this->typeDeCompte->GetSoldeMax() << "  Solde minimum autorise : " << this->typeDeCompte->GetSoldeMin() << endl;
-	stream << "Historique :" << endl << "todo thomas historique" << endl;
+	stream << "Historique :" << endl;
+	
+	/*for(vector<string>::const_iterator it=this->historique.begin();
+		it != this->historique.end(); ++it)
+	{
+		stream << time
+	
+	 << endl << "todo thomas historique" << endl;*/
+	
 	return stream.str();
 }
 

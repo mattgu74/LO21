@@ -8,6 +8,7 @@ std::string & firstUpper(std::string & s);
 std::string & tolower(const std::string & s);
 std::string & firstUpper(const std::string & s);
 
+std::string & time_tToString(time_t & t);
 
 #endif
 
