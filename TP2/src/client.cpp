@@ -43,15 +43,18 @@ string Client::GetId() const {
 	return Client::nomPrenomToId(this->nom, this->prenom);
 }
 
-void Client::CreerCompte(TypeDeCompte & typeDeCompte, int soldeInitial=0) {
+void Client::CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0) {
 	if (this->comptes.find(typeDeCompte.GetName) != this->comptes.end())
 }
 
 
-void Client::TypeDeCompte
+void Client::TypeDeCompteExist(const TypeDeCompte & typeDeCompte) {
+	return (this->GetCompte(typeDeCompte) != this->comptes.end());
+}
 
-
-
+Compte & Client::GetCompte(const TypeDeCompte & typeDeCompte) {
+	return this->comptes.find(typeDeCompte.GetName);
+}
 
 
 
