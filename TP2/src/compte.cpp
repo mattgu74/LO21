@@ -73,9 +73,9 @@ void Compte::TransfererVers(int amount,Compte & to) {
 	stringstream stream;
 	stream << "transfert " << amount << " vers " << to.GetId();
 	this->historique.push_back(stream.str());
-	stringstream stream;
-	stream << "reception transfert " << amount << " de " << this.GetId();
-	this->historique.push_back(stream.str());
+	stream.clear();
+	stream << "reception transfert " << amount << " de " << this->GetId();
+	to.historique.push_back(stream.str());
 }
 
 
