@@ -86,6 +86,15 @@ namespace BANQUE {
 		for ( it_client=this->clients.begin() ; it_client != this->clients.end(); it_client++ )
 			std::cout << (*it_client).second.str() << std::endl;
 
+		// show accounts
+		std::cout << "== COMPTES ==" << std::endl;
+		for ( it_client=this->clients.begin() ; it_client != this->clients.end(); it_client++ )
+		{
+			std::cout << " :: Comptes du client : " << (*it_client).second.str() << " :: " << std::endl;
+			std::cout << (*it_client).second.str_comptes() << std::endl;
+			std::cout << "=====================================================" << std::endl << std::endl;
+		}
+
 	}
 
 }

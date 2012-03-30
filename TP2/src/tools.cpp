@@ -10,6 +10,14 @@ string & tolower(string &s) {
 	return s;
 }
 
+string & toupper(string &s) {
+	for (int i=0; i<s.size(); ++i) {
+		s[i] = toupper(s[i]);
+	}
+
+	return s;
+}
+
 string & firstUpper(string &s) {
 	tolower(s);
 	if (s.size() > 0) {
@@ -26,6 +34,13 @@ string & tolower(const string &s) {
 	return tolower(*pt_s);
 }
 	
+string & toupper(const string &s) {
+	string * pt_s = new string();
+	*(pt_s) = s;
+
+	return toupper(*pt_s);
+}
+
 
 string & firstUpper(const string &s) {
 	string * pt_s = new string();

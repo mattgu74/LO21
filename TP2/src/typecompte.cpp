@@ -8,7 +8,7 @@ using std::string;
 namespace BANQUE {
 
 TypeDeCompte::TypeDeCompte(std::string name, int min, int max, float taux) {
-	this->name = tolower(name);
+	this->name = toupper(name);
 	this->soldeMin = min;
 	this->soldeMax = max;
 	this->taux = taux;
@@ -37,7 +37,7 @@ int TypeDeCompte::GetSoldeMax() const {
 }
 
 string TypeDeCompte::nameToId(const string & s) {
-	return tolower(s);
+	return toupper(s);
 }
 
 bool TypeDeCompte::soldeOk(const int solde) const {

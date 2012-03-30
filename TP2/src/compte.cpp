@@ -111,7 +111,7 @@ creation 400.00
 string Compte::str() const {
 	ostringstream stream;
 
-	stream << "Compte" << this->typeDeCompte->GetName() << "remunere au taux de " << this->typeDeCompte->GetTaux() << "%" << endl;
+	stream << endl << "Compte " << this->typeDeCompte->GetName() << " remunere au taux de " << this->typeDeCompte->GetTaux() << "%" << endl;
 	stream << "Plafond de " << this->typeDeCompte->GetSoldeMax() << "  Solde minimum autorise : " << this->typeDeCompte->GetSoldeMin() << endl;
 	stream << "Historique :" << endl;
 	
