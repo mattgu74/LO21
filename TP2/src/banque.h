@@ -33,7 +33,9 @@ class Banque
 		void CreerUnTypeDeCompte(std::string,int, int, float);
 		void AjouterUnClient(std::string, std::string,int, int, int);
 		void CreerUnCompte(std::string, std::string, std::string, int);
-		// & Compte GetCompte(std::string,std::string,std::string);
+		Compte & GetCompte(std::string, std::string, std::string);
+		void Afficher();
+
 
 
 
