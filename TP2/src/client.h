@@ -30,6 +30,8 @@ class Client
 		 */
 		std::string str() const;
 		
+		std::string str_comptes() const;
+		
 		/**
 		 * Récupérer un id de client à partir de son nom + prenom
 		 * @param {const string&} nom

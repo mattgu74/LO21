@@ -94,6 +94,16 @@ string Client::str() const {
 	return stream.str();
 }
 
+string Client::str_comptes() const {
+	string s;
+	for (map<string, Compte>::const_iterator it=this->comptes.begin();
+		it!=this->comptes.end(); ++it)
+	{
+		s += it->str();
+	}
+
+	return s;
+}
 
 
 
