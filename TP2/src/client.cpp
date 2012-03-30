@@ -1,13 +1,16 @@
 #include "client.h"
 
-#include "tools.h"
 #include <iostream>
+#include <sstream>
+
+#include "tools.h"
 
 using std::string;
 using std::cerr;
 using std::cout;
 using std::endl;
 using std::map;
+using std::ostringstream;
 
 
 namespace BANQUE {
@@ -46,12 +49,13 @@ string Client::GetId() const {
 	return Client::nomPrenomToId(this->nom, this->prenom);
 }
 
-void Client::CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial) {
+void Client::CreerCompte(TypeDeCompte & typeDeCompte, int soldeInitial) {
 	if (this->TypeDeCompteExist(typeDeCompte)) {
 		cerr << "le type de compte existe déjà" << endl;
 	}
 	else {
-		Compte * compte = new Compte();
+		Compte compte(typeDeCompte, soldeInitial);
+		this->comptes[compte.GetId()] = compte;
 	}
 }
 
@@ -78,7 +82,15 @@ Compte * Client::GetCompte(const TypeDeCompte & typeDeCompte) {
 	return this->GetCompte(typeDeCompte.GetId());
 }
 
-
+string Client::str() const {
+    ostringstream stream;
+	stream << this->prenom << " " << this->nom;
+	//struct tm * timeinfo = localtime ( &rawtime );
+	/*timeinfo->tm_year = annee - 1900;
+	timeinfo->tm_mon = moi - 1;
+	timeinfo->tm_mday = jour;*/
+	return stream.str();
+}
 
 
 

@@ -12,7 +12,7 @@ class Compte
 {
 	public:
 		Compte();
-		Compte(TypeDeCompte * typeDeCompte, int solde=0);
+		Compte(TypeDeCompte & typeDeCompte, int solde=0);
 
 		std::string GetId() const;
 

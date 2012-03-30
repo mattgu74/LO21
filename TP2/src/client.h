@@ -25,6 +25,12 @@ class Client
 		Client(const std::string & nom, const std::string & prenom, int jour, int moi, int annee);
 
 		/**
+		 * stringifier
+		 * @return {string}
+		 */
+		std::string str() const;
+		
+		/**
 		 * Récupérer un id de client à partir de son nom + prenom
 		 * @param {const string&} nom
 		 * @param {const string&} prenom
@@ -36,10 +42,7 @@ class Client
 		 * @param {TypeDeCompte*} typeDeCompte
 		 * @param {int} soldeInitial (default=0)
 		 */
-		void CreerCompte(TypeDeCompte * typeDeCompte, int soldeInitial=0);
-
-		
-		void CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0);
+		void CreerCompte(TypeDeCompte & typeDeCompte, int soldeInitial=0);
 
 		bool TypeDeCompteExist(const std::string & id_typeDeCompte);
 		bool TypeDeCompteExist(const TypeDeCompte & typeDeCompte);

@@ -8,8 +8,8 @@ Compte::Compte() {
 	this->typeDeCompte = 0;
 }
 
-Compte::Compte(TypeDeCompte * typeDeCompte, int solde) {
-	this->typeDeCompte = typeDeCompte;
+Compte::Compte(TypeDeCompte & typeDeCompte, int solde) {
+	this->typeDeCompte = &typeDeCompte;
 	this->solde = solde;
 }
 
