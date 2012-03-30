@@ -3,6 +3,8 @@
 #include "tools.h"
 
 using std::string;
+using std::cerr;
+using std::cout;
 
 
 namespace BANQUE {
@@ -21,6 +23,7 @@ Client::Client(const std::string & nom, const std::string & prenom, int jour, in
 
 	this->dateDeNaissance = mktime ( timeinfo );
 	if (this->dateDeNaissance < 0) {
+		cerr << "Date de naissance non valide" << endl;
 		throw "Date de naissance non valide";
 	}
 
@@ -36,11 +39,16 @@ string Client::nomPrenomToId(const string & nom, const string & prenom) {
 	return nom + prenom;
 }
 
-string Client::GetId(const string & nom, const string & prenom) const {
-	return Client::nomPrenomToId(nom, prenom);
+string Client::GetId() const {
+	return Client::nomPrenomToId(this->nom, this->prenom);
+}
+
+void Client::CreerCompte(TypeDeCompte & typeDeCompte, int soldeInitial=0) {
+	if (this->comptes.find(typeDeCompte.GetName) != this->comptes.end())
 }
 
 
+void Client::TypeDeCompte
 
 
 
