@@ -12,11 +12,13 @@ namespace BANQUE {
 
 Compte::Compte() {
 	this->typeDeCompte = 0;
+	this->cumulInteret = 0;
 }
 
 Compte::Compte(TypeDeCompte & typeDeCompte, int solde) {
 	this->typeDeCompte = &typeDeCompte;
 	this->solde = solde;
+	this->cumulInteret = 0;
 }
 
 
@@ -78,6 +80,10 @@ void Compte::TransfererVers(int amount,Compte & to) {
 	to.historique.push_back(stream.str());
 }
 
+
+void Compte::CalculInterets() {
+	interets = (int)((this->solde * this->typeDeCompte->GetTaux())/24.0);
+}
 
 
 

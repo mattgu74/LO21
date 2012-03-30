@@ -99,7 +99,7 @@ string Client::str_comptes() const {
 	for (map<string, Compte>::const_iterator it=this->comptes.begin();
 		it!=this->comptes.end(); ++it)
 	{
-		s += it->str();
+		s += it->second.str();
 	}
 
 	return s;

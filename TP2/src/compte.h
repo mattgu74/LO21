@@ -20,10 +20,13 @@ class Compte
 		void Retirer(int);
 		void TransfererVers(int,Compte &);
 
+		void CalculInteret();
+
 	private:
 		void SetSolde(int solde);
 		TypeDeCompte * typeDeCompte;
 		int solde;
+		int cumulInteret;
 		std::vector<std::string> historique;
 };
 
