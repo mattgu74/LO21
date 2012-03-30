@@ -19,6 +19,7 @@ class Compte
 		void Deposer(int);
 		void Retirer(int);
 		void TransfererVers(int,Compte &);
+		std::string str() const;
 
 	private:
 		void SetSolde(int solde);

@@ -7,6 +7,8 @@ using std::string;
 using std::cerr;
 using std::endl;
 using std::stringstream;
+using std::ostringstream;
+
 
 namespace BANQUE {
 
@@ -78,8 +80,27 @@ void Compte::TransfererVers(int amount,Compte & to) {
 	to.historique.push_back(stream.str());
 }
 
+/*
+OMPTE NUM 0
+PROPRIETAIRE :Clement Fouque (30/06/1987)
+compte CODEVI remunere au taux de 1.250000 %
+PLAFOND :6000.000000 SOLDE MINIMUM AUTORISE :50.000000
+SOLDE ACTUEL :600.000000
+HISTORIQUE :
+15/03/2010 -- reception transfert 200.00 du compte CHEQUE 1
+15/03/2010 --
+creation 400.00
+*/
 
 
+string Compte::str() const {
+	ostringstream stream;
+
+	stream << "Compte" << this->typeDeCompte->GetName() << "remunere au taux de " << this->typeDeCompte->GetTaux() << "%" << endl;
+	stream << "Plafond de " << this->typeDeCompte->GetSoldeMax() << "  Solde minimum autorise : " << this->typeDeCompte->GetSoldeMin() << endl;
+	stream << "Historique :" << endl << "todo thomas historique" << endl;
+	return stream.str();
+}
 
 
 
