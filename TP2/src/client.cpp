@@ -36,7 +36,9 @@ string Client::nomPrenomToId(const string & nom, const string & prenom) {
 	return nom + prenom;
 }
 
-
+string Client::GetId(const string & nom, const string & prenom) const {
+	return Client::nomPrenomToId(nom, prenom);
+}
 
 
 

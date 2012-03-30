@@ -6,6 +6,7 @@
 #include <map>
 
 #include "compte.h"
+#include "typecompte.h"
 
 namespace BANQUE {
 
@@ -29,6 +30,13 @@ class Client
 		 * @param {const string&} prenom
 		 */
 		static std::string nomPrenomToId(const std::string & nom, const std::string & prenom);
+		std::string getId(const std::string & nom, const std::string & prenom) const;
+		
+		/**
+		 * @param {TypeDeCompte*} typeDeCompte
+		 * @param {int} soldeInitial (default=0)
+		 */
+		void creerCompte(TypeDeCompte * typeDeCompte, int soldeInitial=0);
 
 	private:
 		std::string nom, prenom;

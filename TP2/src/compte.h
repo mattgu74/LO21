@@ -2,6 +2,8 @@
 #define COMPTE_H
 
 
+#include "typecompte.h"
+
 namespace BANQUE
 {
 
