@@ -22,5 +22,4 @@ namespace BANQUE {
 		// TODO
 	}
 
-	
 }
