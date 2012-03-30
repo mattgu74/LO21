@@ -7,7 +7,12 @@ using std::string;
 
 namespace BANQUE {
 
-TypeDeCompte::TypeDeCompte() {}
+TypeDeCompte::TypeDeCompte(std::string name, int min, int max, float taux) {
+	this->name = name;
+	this->soldeMin = min;
+	this->soldeMax = max;
+	this->taux = taux;
+}
 
 
 

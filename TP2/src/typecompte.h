@@ -9,7 +9,7 @@ namespace BANQUE  {
 class TypeDeCompte
 {
 	public:
-		TypeDeCompte();
+		TypeDeCompte(std::string, int, int, float);
 		
 		static std::string nameToId(const std::string & s);
 		std::string GetId() const;
@@ -17,6 +17,9 @@ class TypeDeCompte
 
 	private:
 		std::string name;
+		int soldeMin;
+		int soldeMax;
+		float taux;
 
 };
 

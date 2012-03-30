@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <string>
 #include "banque.h"
 #include "typecompte.h"
 #include "client.h"
@@ -39,7 +40,14 @@ namespace BANQUE {
 
 	void Banque::CreerUnCompte(std::string type, std::string nomClient, std::string prenomClient, int solde)
 	{
-		// TODO
+		// Search if client and type de compte exist
+		std::map<std::string,Client>::iterator it_client = this->clients.find(Client::nomPrenomToId(nomClient, prenomClient));
+		std::map<std::string,TypeDeCompte>::iterator it_typeCompte = this->typesDeCompte.find(TypeDeCompte::nameToId(type));
+		if(it_client != this->clients.end()
+				&& it_typeCompte != this->typesDeCompte.end())
+		{
+			it_client->second.CreerCompte(it_typeCompte->second, solde);
+		}
 	}
 
 }
