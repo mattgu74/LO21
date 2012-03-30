@@ -30,7 +30,7 @@ class Client
 		 * @param {const string&} prenom
 		 */
 		static std::string nomPrenomToId(const std::string & nom, const std::string & prenom);
-		std::string getId() const;
+		std::string GetId() const;
 		
 		/**
 		 * @param {TypeDeCompte*} typeDeCompte
@@ -39,11 +39,11 @@ class Client
 		void CreerCompte(TypeDeCompte * typeDeCompte, int soldeInitial=0);
 
 		
-	void CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0);
+		void CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0);
 
-	void TypeDeCompteExist(const TypeDeCompte & typeDeCompte);
+		void TypeDeCompteExist(const TypeDeCompte & typeDeCompte);
 
-	Compte & GetCompte(const TypeDeCompte & typeDeCompte);
+		Compte & GetCompte(const TypeDeCompte & typeDeCompte);
 
 	private:
 		std::string nom, prenom;
