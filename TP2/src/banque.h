@@ -9,6 +9,7 @@
 
 #include "client.h"
 #include "typecompte.h"
+#include "compte.h"
 
 
 
@@ -17,7 +18,13 @@ namespace BANQUE {
 class Banque
 {
 	public:
-		Banque(std::string nom);
+		void Initialiser(std::string);
+		void CreerUnTypeDeCompte(std::string,int, int, float);
+		void AjouterUnClient(std::string, std::string,int, int, int);
+		void CreerUnCompte(std::string, std::string, std::string, int);
+		// & Compte GetCompte(std::string,std::string,std::string);
+
+
 
 	private:
 		std::string nom;
