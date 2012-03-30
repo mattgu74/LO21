@@ -18,6 +18,7 @@ namespace BANQUE {
 		{
 			// Le type n'existe pas
 			this->typesDeCompte.insert ( std::pair<std::string,TypeDeCompte>((*type).GetId(),*type) );
+			std::cout << "Type de compte créé : " << nom << " " << soldeMin << " " << soldeMax << std::endl;
 		} else {
 			delete type;
 			std::cerr << "ERROR : Le type de compte " << nom << " existe déjà !" << std::endl;
@@ -32,6 +33,7 @@ namespace BANQUE {
 		{
 			// Le client n'existe pas
 			this->clients.insert ( std::pair<std::string,Client>((*monClient).GetId(),*monClient) );
+			std::cout << "Client ajouté : " << nom << " " << prenom << std::endl;
 		} else {
 			delete monClient;
 			std::cerr << "ERROR : Le client " << nom << " " << prenom << " existe déjà !" << std::endl;
@@ -40,15 +42,23 @@ namespace BANQUE {
 
 	void Banque::CreerUnCompte(std::string type, std::string nomClient, std::string prenomClient, int solde)
 	{
+		std::map<std::string,Client>::iterator it_client;
+		std::map<std::string,TypeDeCompte>::iterator it_typeCompte;
+
 		// Search if client and type de compte exist
-		std::map<std::string,Client>::iterator it_client = this->clients.find(Client::nomPrenomToId(nomClient, prenomClient));
-		std::map<std::string,TypeDeCompte>::iterator it_typeCompte = this->typesDeCompte.find(TypeDeCompte::nameToId(type));
-		if(it_client != this->clients.end()
-				&& it_typeCompte != this->typesDeCompte.end())
+		it_client = this->clients.find(Client::nomPrenomToId(nomClient, prenomClient));
+		it_typeCompte = this->typesDeCompte.find(TypeDeCompte::nameToId(type));
+
+		if(it_client != this->clients.end())
 		{
-			it_client->second.CreerCompte(it_typeCompte->second, solde);
+				if(it_typeCompte != this->typesDeCompte.end())
+				{
+					(*it_client).second.CreerCompte((*it_typeCompte).second, solde);
+				} else {
+					std::cerr << "ERROR : Le type de compte n'existe pas... Impossible de créer un compte." << std::endl;
+				}
 		} else {
-			std::cerr << "ERROR : Le client ou le type de compte n'existe pas... Impossible de créer un compte." << std::endl;
+			std::cerr << "ERROR : Le client n'existe pas... Impossible de créer un compte." << std::endl;
 		}
 	}
 
@@ -69,7 +79,13 @@ namespace BANQUE {
 
 	void Banque::Afficher()
 	{
-		std::cout << "TODO :: AFFICHAGE !! " << std::endl;
+		std::cout << std::endl << "---------- " << this->nom << " ----------" << std::endl;
+		// show clients
+		std::cout << "== CLIENTS ==" << std::endl;
+		std::map<std::string,Client>::iterator it_client;
+		for ( it_client=this->clients.begin() ; it_client != this->clients.end(); it_client++ )
+			std::cout << (*it_client).second.str() << std::endl;
+
 	}
 
 }
