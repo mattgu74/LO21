@@ -1,6 +1,7 @@
 #include "client.h"
 
 #include "tools.h"
+#include <iostream>
 
 using std::string;
 using std::cerr;

@@ -38,6 +38,13 @@ class Client
 		 */
 		void CreerCompte(TypeDeCompte * typeDeCompte, int soldeInitial=0);
 
+		
+	void CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0);
+
+	void TypeDeCompteExist(const TypeDeCompte & typeDeCompte);
+
+	Compte & GetCompte(const TypeDeCompte & typeDeCompte);
+
 	private:
 		std::string nom, prenom;
 		std::time_t dateDeNaissance;
