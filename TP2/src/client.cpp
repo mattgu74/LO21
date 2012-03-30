@@ -84,11 +84,13 @@ Compte * Client::GetCompte(const TypeDeCompte & typeDeCompte) {
 
 string Client::str() const {
     ostringstream stream;
-	stream << this->prenom << " " << this->nom;
-	//struct tm * timeinfo = localtime ( &rawtime );
-	/*timeinfo->tm_year = annee - 1900;
-	timeinfo->tm_mon = moi - 1;
-	timeinfo->tm_mday = jour;*/
+	struct tm * timeinfo = localtime ( &(this->dateDeNaissance) );
+	char * buffer = new char[80];
+	
+	strftime (buffer,80,"(%d/%M/%Y",timeinfo);
+	
+	stream << this->prenom << " " << this->nom << " " << buffer;
+	
 	return stream.str();
 }
 
