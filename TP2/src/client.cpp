@@ -87,7 +87,7 @@ string Client::str() const {
 	struct tm * timeinfo = localtime ( &(this->dateDeNaissance) );
 	char * buffer = new char[80];
 	
-	strftime (buffer,80,"(%d/%M/%Y",timeinfo);
+	strftime (buffer,80,"(%d/%M/%Y)",timeinfo);
 	
 	stream << this->prenom << " " << this->nom << " " << buffer;
 	

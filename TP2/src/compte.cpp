@@ -1,10 +1,12 @@
 #include "compte.h"
 
 #include <iostream>
+#include <sstream>
 
 using std::string;
 using std::cerr;
 using std::endl;
+using std::stringstream;
 
 namespace BANQUE {
 
@@ -40,6 +42,9 @@ void Compte::Deposer(int amount) {
 	}
 	else {
 		this->SetSolde(this->solde + amount);
+		stringstream stream;
+		stream << "depot " << amount;
+		this->historique.push_back(stream.str());
 	}
 }
 
@@ -50,6 +55,9 @@ void Compte::Retirer(int amount) {
 	}
 	else {
 		this->SetSolde(this->solde - amount);
+		stringstream stream;
+		stream << "retrait " << amount;
+		this->historique.push_back(stream.str());
 	}
 }
 
@@ -62,6 +70,12 @@ void Compte::TransfererVers(int amount,Compte & to) {
 		to.Retirer(amount);
 		throw s;
 	}
+	stringstream stream;
+	stream << "transfert " << amount << " vers " << to.GetId();
+	this->historique.push_back(stream.str());
+	stringstream stream;
+	stream << "reception transfert " << amount << " de " << this.GetId();
+	this->historique.push_back(stream.str());
 }
 
 

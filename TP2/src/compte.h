@@ -2,6 +2,7 @@
 #define COMPTE_H
 
 #include <string>
+#include <vector>
 
 #include "typecompte.h"
 
@@ -23,6 +24,7 @@ class Compte
 		void SetSolde(int solde);
 		TypeDeCompte * typeDeCompte;
 		int solde;
+		std::vector<std::string> historique;
 };
 
 }
