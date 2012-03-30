@@ -39,7 +39,7 @@ Client::Client(const std::string & nom, const std::string & prenom, int jour, in
 
 
 string Client::nomPrenomToId(const string & nom, const string & prenom) {
-	return nom + prenom;
+	return firstUpper(nom) + firstUpper(prenom);
 }
 
 string Client::GetId() const {
@@ -47,22 +47,35 @@ string Client::GetId() const {
 }
 
 void Client::CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial) {
-	//return (this->comptes.find(typeDeCompte.GetName()) != this->comptes.end());
+	if (this->TypeDeCompteExist(typeDeCompte)) {
+		cerr << "le type de compte existe déjà" << endl;
+	}
+	else {
+		Compte * compte = new Compte();
+	}
 }
 
 
 bool Client::TypeDeCompteExist(const TypeDeCompte & typeDeCompte) {
-	return !(this->GetCompte(typeDeCompte) != 0);
+	return this->TypeDeCompteExist(typeDeCompte.GetId());
 }
 
-Compte * Client::GetCompte(const TypeDeCompte & typeDeCompte) {
-	map<string,Compte>::iterator it = this->comptes.find(typeDeCompte.GetName());
+bool Client::TypeDeCompteExist(const string & id_typeDeCompte) {
+	return (this->GetCompte(id_typeDeCompte) != 0);
+}
+
+Compte * Client::GetCompte(const string & id_typeDeCompte) {
+	map<string,Compte>::iterator it = this->comptes.find(id_typeDeCompte);
 	if (it == this->comptes.end()) {
 		return 0;
 	}
 	else {
 		return &(it->second);
 	}
+}
+
+Compte * Client::GetCompte(const TypeDeCompte & typeDeCompte) {
+	return this->GetCompte(typeDeCompte.GetId());
 }
 
 

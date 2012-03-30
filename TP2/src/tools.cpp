@@ -18,3 +18,20 @@ string & firstUpper(string &s) {
 
 	return s;
 }
+
+string & tolower(const string &s) {
+	string * pt_s = new string();
+	*(pt_s) = s;
+
+	return tolower(*pt_s);
+}
+	
+
+string & firstUpper(const string &s) {
+	string * pt_s = new string();
+	*(pt_s) = s;
+
+	return firstUpper(*pt_s);
+}
+
+

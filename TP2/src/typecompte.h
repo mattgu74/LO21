@@ -10,6 +10,9 @@ class TypeDeCompte
 {
 	public:
 		TypeDeCompte();
+		
+		static std::string nameToId(const std::string & s);
+		std::string GetId() const;
 		std::string GetName() const;
 
 	private:
