@@ -42,6 +42,23 @@ int main(int argc, char **argv)
 	BNP.CreerUnCompte("CEL","Sergio","Rodriguez",4000);
 	BNP.CreerUnCompte("CHEQUE","Sergio","Rodriguez",6000);
 
+	// Quelques opérations
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Deposer(3000);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(100);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(40);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(50);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(100);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(20);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(1500);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(140);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(200);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(200);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").Retirer(400);
+	BNP.GetCompte("CHEQUE","Clement","Fouque").
+	TransfererVers(200,BNP.GetCompte("CODEVI","Clement","Fouque"));
+
+	// Affichage
+	BNP.Afficher();
 
 	return 0;
 }

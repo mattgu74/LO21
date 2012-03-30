@@ -15,6 +15,9 @@ class Compte
 		Compte(TypeDeCompte & typeDeCompte, int solde=0);
 
 		std::string GetId() const;
+		void Deposer(int);
+		void Retirer(int);
+		void TransfererVers(int,Compte &);
 
 	private:
 		TypeDeCompte * typeDeCompte;

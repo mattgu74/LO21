@@ -18,7 +18,18 @@ string Compte::GetId() const {
 	return this->typeDeCompte->GetId();
 }
 
+void Compte::Deposer(int amount) {
 
+}
+
+void Compte::Retirer(int amount) {
+
+}
+
+void Compte::TransfererVers(int amount,Compte & to)
+{
+
+}
 
 
 

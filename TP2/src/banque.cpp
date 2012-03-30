@@ -47,7 +47,29 @@ namespace BANQUE {
 				&& it_typeCompte != this->typesDeCompte.end())
 		{
 			it_client->second.CreerCompte(it_typeCompte->second, solde);
+		} else {
+			std::cerr << "ERROR : Le client ou le type de compte n'existe pas... Impossible de créer un compte." << std::endl;
 		}
+	}
+
+	Compte & Banque::GetCompte(std::string type, std::string nomClient, std::string prenomClient)
+	{
+		// Search if client and type de compte exist
+		std::map<std::string,Client>::iterator it_client = this->clients.find(Client::nomPrenomToId(nomClient, prenomClient));
+		std::map<std::string,TypeDeCompte>::iterator it_typeCompte = this->typesDeCompte.find(TypeDeCompte::nameToId(type));
+		if(it_client != this->clients.end()
+				&& it_typeCompte != this->typesDeCompte.end())
+		{
+			it_client->second.GetCompte(it_typeCompte->second);
+		} else {
+			std::cerr << "ERROR : Le client ou le type de compte n'existe pas... Impossible d'obtenir le compte" << std::endl;
+			throw "error impossible d'obtenir le compte";
+		}
+	}
+
+	void Banque::Afficher()
+	{
+		std::cout << "TODO :: AFFICHAGE !! " << std::endl;
 	}
 
 }
