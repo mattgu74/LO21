@@ -4,11 +4,11 @@ using std::string;
 
 namespace BANQUE {
 
-TypeDeCompte() {}
+TypeDeCompte::TypeDeCompte() {}
 
 
 
-string & TypeDeCompte::GetName() const {
+string TypeDeCompte::GetName() const {
 	return this->name;
 }
 

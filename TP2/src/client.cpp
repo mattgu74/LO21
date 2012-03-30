@@ -6,6 +6,8 @@
 using std::string;
 using std::cerr;
 using std::cout;
+using std::endl;
+using std::map;
 
 
 namespace BANQUE {
@@ -44,17 +46,23 @@ string Client::GetId() const {
 	return Client::nomPrenomToId(this->nom, this->prenom);
 }
 
-void Client::CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0) {
-	if (this->comptes.find(typeDeCompte.GetName) != this->comptes.end())
+void Client::CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial) {
+	//return (this->comptes.find(typeDeCompte.GetName()) != this->comptes.end());
 }
 
 
-void Client::TypeDeCompteExist(const TypeDeCompte & typeDeCompte) {
-	return (this->GetCompte(typeDeCompte) != this->comptes.end());
+bool Client::TypeDeCompteExist(const TypeDeCompte & typeDeCompte) {
+	return !(this->GetCompte(typeDeCompte) != 0);
 }
 
-Compte & Client::GetCompte(const TypeDeCompte & typeDeCompte) {
-	return this->comptes.find(typeDeCompte.GetName);
+Compte * Client::GetCompte(const TypeDeCompte & typeDeCompte) {
+	map<string,Compte>::iterator it = this->comptes.find(typeDeCompte.GetName());
+	if (it == this->comptes.end()) {
+		return 0;
+	}
+	else {
+		return &(it->second);
+	}
 }
 
 

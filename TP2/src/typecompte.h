@@ -10,7 +10,7 @@ class TypeDeCompte
 {
 	public:
 		TypeDeCompte();
-		std::string & GetName() const;
+		std::string GetName() const;
 
 	private:
 		std::string name;

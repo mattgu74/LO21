@@ -41,9 +41,9 @@ class Client
 		
 		void CreerCompte(const TypeDeCompte & typeDeCompte, int soldeInitial=0);
 
-		void TypeDeCompteExist(const TypeDeCompte & typeDeCompte);
+		bool TypeDeCompteExist(const TypeDeCompte & typeDeCompte);
 
-		Compte & GetCompte(const TypeDeCompte & typeDeCompte);
+		Compte * GetCompte(const TypeDeCompte & typeDeCompte);
 
 	private:
 		std::string nom, prenom;
