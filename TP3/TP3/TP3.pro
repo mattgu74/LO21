@@ -1,6 +1,8 @@
 SOURCES += \
     main.cpp \
-    element.cpp
+    element.cpp \
+    mymainwindow.cpp
 
 HEADERS += \
-    element.h
+    element.h \
+    mymainwindow.h

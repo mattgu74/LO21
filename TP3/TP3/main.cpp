@@ -1,24 +1,14 @@
 #include <QTextStream>
 #include <cstdio>
 #include "element.h"
+#include "mymainwindow.h"
 
-void createGuiTree() {
-	cout<<"Debut de la fonction"<<endl;
-	// allocation statique, la memoire sera liberee a la fin
-	Element guiTree(0, "Interface");
-	// allocation dynamique des sous structures
-	Element * mainWidget = new Element(&guiTree, "MainWidget");
-	Element * menuBar = new Element(mainWidget, "MenuBar");
-	Element * fileMenu = new Element(menuBar, "File");
-	new Element(fileMenu, "QuitItem");
-	new Element(menuBar, "Edit");
-	new Element(menuBar, "Help");
-	new Element(mainWidget, "StatusBar");
-	cout<<"Afficher les objets"<<endl;
-	guiTree.dumpObjectTree();
-	cout<<"Fin de la fonction"<<endl;
-}
-int main(int argc, char *argv[]) {
-	createGuiTree();
-	return 0;
+#include <QApplication>
+#include <QtGui>
+
+int main( int argc, char ** argv) {
+	QApplication mainApp(argc, argv);
+	MyMainWindow win;
+	win.show();
+	return mainApp.exec();
 }
