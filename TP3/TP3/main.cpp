@@ -2,6 +2,7 @@
 #include <cstdio>
 #include "element.h"
 #include "mymainwindow.h"
+#include "mywidget.h"
 
 #include <QApplication>
 #include <QtGui>

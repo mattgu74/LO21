@@ -1,4 +1,5 @@
 #include "mymainwindow.h"
+#include "mywidget.h"
 #include <QtGui>
 
 void MyMainWindow::about()
@@ -31,6 +32,14 @@ MyMainWindow::MyMainWindow(QWidget *parent) :
 	QStatusBar *barreEtat = statusBar();
 	barreEtat->showMessage("Done");
 
+	MyWidget *mywidget = new MyWidget(this);
+	setCentralWidget(mywidget);
+	resize(800,600);
+
 	connect(actionQuit,SIGNAL(triggered()), qApp, SLOT(quit()));
 	connect(actionAbout,SIGNAL(triggered()), this, SLOT(about()));
+	// MYWIDGET SLOT
+	connect(actionPlay,SIGNAL(triggered()), mywidget, SLOT(play()));
+	connect(actionPause,SIGNAL(triggered()), mywidget, SLOT(pause()));
+	connect(actionReset,SIGNAL(triggered()), mywidget, SLOT(reset()));
 }
