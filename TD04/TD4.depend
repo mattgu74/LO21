@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1334324524 source:c:\users\thomas\desktop\td4\time.cpp
+	<iomanip>
+	"time.h"
+	<ctime>
+
+1334324553 c:\users\thomas\desktop\td4\time.h
+	<iostream>
+	<iomanip>
+
+1334330350 source:c:\users\thomas\desktop\td4\main.cpp
+	<iostream>
+	"evenement.h"
+
+1334330793 source:c:\users\thomas\desktop\td4\evenement.cpp
+	"evenement.h"
+	<new>
+
+1334330871 c:\users\thomas\desktop\td4\evenement.h
+	<string>
+	<iostream>
+	"time.h"
+
